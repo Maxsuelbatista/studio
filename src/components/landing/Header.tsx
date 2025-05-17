@@ -1,22 +1,32 @@
 import Link from 'next/link';
 
-// SVG Logo for "S&F"
+// SVG Logo for "GF" Monogram
 const SvgLogo = () => (
   <svg
     width="32"
     height="32"
     viewBox="0 0 100 100"
-    fill="currentColor" // Inherits color from parent
+    fill="currentColor" // Inherits color from parent text
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M63.5 25C52.5 25 45 33 45 43.5C45 54.5 53 60 63 60C68.5 60 73 57.5 75.5 54M63.5 25C77 25 83.5 37 83.5 47.5C83.5 57.5 77 69 63.5 69M45 43.5C35 43.5 25 37.5 25 25C25 12.5 35 5 47.5 5C60 5 67.5 15 67.5 27.5M70 55C70 62.5 65 70 57.5 70C50 70 45 65 45 57.5C45 50 50 45 57.5 45C60.1667 45 62.6389 45.5556 65 47M40 57.5C40 70 35 80 25 80C15 80 10 70 10 57.5C10 45 15 35 25 35C35 35 40 45 40 57.5M57.5 70C57.5 80 52.5 90 45 95M57.5 70C60 70 65 70 65 70"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
+    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      {/* Outer Circle */}
+      <circle cx="50" cy="50" r="44" strokeWidth="4"/>
+      
+      {/* Stylized "G" */}
+      <path strokeWidth="5.5" d="M72 30 
+                           C 72 18, 62 12, 50 15 
+                           C 35 19, 25 33, 25 50 
+                           C 25 67, 35 81, 50 85 
+                           C 65 81, 75 68, 73 53"/>
+      
+      {/* Stylized "F" (crossbar and shared stem) */}
+      {/* The right part of G (from C 73 53) acts as F's stem */}
+      <path strokeWidth="5.5" d="M40 51 L73 51"/>
+      
+      {/* Optional: Small serif/tail for the F at the bottom of its stem */}
+      <path strokeWidth="5.5" d="M73 53 Q 73 65 68 70"/>
+    </g>
   </svg>
 );
 

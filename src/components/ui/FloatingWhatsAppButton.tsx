@@ -1,0 +1,38 @@
+
+"use client";
+
+import Link from 'next/link';
+
+const WhatsAppIcon = () => (
+  <svg
+    width="32" // Increased size for better visibility
+    height="32"
+    viewBox="0 0 24 24"
+    fill="currentColor" // This will be white for the icon
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.0002 2.00002C6.4772 2.00002 2.00024 6.47703 2.00024 12C2.00024 13.9016 2.48663 15.7058 3.34578 17.2514L2.09531 21.9047L6.87109 20.686C8.38578 21.4704 10.1262 21.9305 11.9991 21.9305C17.5221 21.9305 21.9991 17.4535 21.9991 12.0009C21.9991 6.54648 17.5841 2.00002 12.0002 2.00002ZM17.0741 15.316C16.8346 15.8087 16.0389 16.2403 15.4833 16.2975C15.0517 16.3407 14.5358 16.3478 14.1366 16.1837C13.7374 16.0196 13.0039 15.6676 11.9149 14.6334C10.4561 13.2282 9.57172 11.5388 9.38656 11.2651C9.2014 10.9914 9.00922 10.743 9.00922 10.409C9.00922 10.075 9.19438 9.88401 9.35625 9.72214C9.51812 9.56027 9.71734 9.49924 9.85687 9.29909C9.9964 9.09894 10.0289 8.9594 9.97172 8.82698C9.91453 8.69455 9.46765 7.5619 9.22812 7.06917C8.99562 6.57644 8.79547 6.65487 8.63359 6.6478C8.47172 6.64074 8.22328 6.64074 7.97484 6.64074C7.7264 6.64074 7.38265 6.71917 7.09625 7.00557C6.80984 7.29198 6.11109 7.91362 6.11109 8.9619C6.11109 10.0102 7.10328 11.0167 7.24281 11.1808C7.38234 11.3449 9.29422 14.2579 12.1573 15.5204C14.4261 16.4814 15.0167 16.2006 15.4412 16.1434C15.8658 16.0862 16.6389 15.6464 16.8558 15.407C17.0726 15.1675 17.0726 14.9537 17.0155 14.8213C16.9583 14.6888 16.8346 14.5564 16.6108 14.3169C16.387 14.0774 16.2475 13.9714 16.1009 13.7137C15.9542 13.456 15.8305 13.2651 15.9994 13.0741C16.1683 12.8831 16.5858 12.7161 16.9266 12.5836C17.2673 12.4512 17.5069 12.4254 17.6991 12.5038C17.8912 12.5823 18.0083 13.1407 18.0083 13.1407Z"
+    />
+  </svg>
+);
+
+
+export function FloatingWhatsAppButton() {
+  const phoneNumber = "5511989407822";
+  const message = "Olá! Visitei o site Felipe & Silva Advocacia e gostaria de mais informações.";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  return (
+    <Link
+      href={whatsappLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contato via WhatsApp"
+      className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-transform duration-300 ease-in-out hover:scale-110 flex items-center justify-center"
+      style={{ width: '60px', height: '60px' }} 
+    >
+      <WhatsAppIcon />
+    </Link>
+  );
+}

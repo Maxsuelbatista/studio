@@ -1,7 +1,9 @@
+
 import type {Metadata} from 'next';
 import { Geist, Geist_Mono } from 'next/font/google'; // Corrected import
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"; // Added Toaster
+import { FloatingWhatsAppButton } from '@/components/ui/FloatingWhatsAppButton';
 
 const geistSans = Geist({ // Corrected instantiation
   variable: '--font-geist-sans',
@@ -28,6 +30,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <Toaster />
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );

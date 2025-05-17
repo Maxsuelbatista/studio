@@ -180,7 +180,7 @@ export function ContactFormSection() {
                 asChild
               >
                 <a
-                  href={`https://wa.me/5511989407822?text=${encodeURIComponent("Olá! Visitei o site Felipe & Silva Advocacia e gostaria de mais informações.")}`}
+                  href={`https://wa.me/5511989407822?text=${encodeURIComponent("Olá! Visitei o site Giselle & Felipe Advocacia e gostaria de mais informações.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Contato via WhatsApp"

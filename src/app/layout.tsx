@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Felipe & Silva - Advocacia Trabalhista',
+  title: 'Giselle & Felipe - Advocacia Trabalhista',
   description: 'Assessoria jurídica especializada em direito trabalhista.',
 };
 

@@ -6,15 +6,15 @@ export function Header() {
     <header className="bg-primary text-primary-foreground py-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 text-2xl font-bold hover:opacity-90 transition-opacity">
-          <Image 
-            src="https://placehold.co/100x100.png" // Substitua pelo URL do seu logo
-            alt="Felipe & Silva Logo" 
-            width={32} 
-            height={32}
-            data-ai-hint="logo"
-            className="rounded" // Adiciona um leve arredondamento se o logo for quadrado/circular
+          <Image
+            src="https://placehold.co/100x40.png" // Você precisará substituir este src
+            alt="Giselle & Felipe Logo"
+            width={100} // Ajuste conforme necessário
+            height={40}  // Ajuste conforme necessário
+            data-ai-hint="logo brand"
+            className="rounded"
           />
-          <span>Felipe &amp; Silva</span>
+          <span>Giselle &amp; Felipe</span>
         </Link>
         <nav className="space-x-4">
           <Link href="#services" className="hover:text-accent transition-colors">Serviços</Link>

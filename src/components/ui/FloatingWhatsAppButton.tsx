@@ -20,7 +20,7 @@ const WhatsAppIcon = () => (
 
 export function FloatingWhatsAppButton() {
   const phoneNumber = "5511989407822";
-  const message = "Olá! Visitei o site Felipe & Silva Advocacia e gostaria de mais informações.";
+  const message = "Olá! Visitei o site Giselle & Felipe Advocacia e gostaria de mais informações.";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

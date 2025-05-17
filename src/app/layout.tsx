@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'LexLaboris Landing',
+  title: 'Felipe & Silva - Advocacia Trabalhista',
   description: 'Assessoria jurídica especializada em direito trabalhista.',
 };
 

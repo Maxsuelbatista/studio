@@ -12,7 +12,6 @@ export function Header() {
         <nav className="space-x-4">
           <Link href="#services" className="hover:text-accent transition-colors">Serviços</Link>
           <Link href="#testimonials" className="hover:text-accent transition-colors">Depoimentos</Link>
-          <Link href="#assessor" className="hover:text-accent transition-colors">Avalie seu Caso</Link>
           <Link href="#contact" className="hover:text-accent transition-colors">Contato</Link>
         </nav>
       </div>

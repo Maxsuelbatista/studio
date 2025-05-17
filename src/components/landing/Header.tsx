@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -7,10 +8,10 @@ export function Header() {
       <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 text-2xl font-bold hover:opacity-90 transition-opacity">
           <Image
-            src="https://placehold.co/100x40.png" // Você precisará substituir este src
+            src="https://placehold.co/100x40.png" 
             alt="Giselle & Felipe Logo"
-            width={100} // Ajuste conforme necessário
-            height={40}  // Ajuste conforme necessário
+            width={100} 
+            height={40}  
             data-ai-hint="logo brand"
             className="rounded"
           />

@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote, Star } from "lucide-react";
@@ -18,7 +19,7 @@ const testimonials: Testimonial[] = [
     role: "Ex-Funcionário de TI",
     avatarUrl: "https://placehold.co/100x100.png",
     avatarFallback: "JS",
-    quote: "A LexLaboris foi fundamental para garantir meus direitos na rescisão. Profissionalismo impecável!",
+    quote: "Giselle & Felipe Advocacia foi fundamental para garantir meus direitos na rescisão. Profissionalismo impecável!",
     rating: 5,
     imageHint: "man portrait"
   },
@@ -27,7 +28,7 @@ const testimonials: Testimonial[] = [
     role: "Gerente Comercial",
     avatarUrl: "https://placehold.co/100x100.png",
     avatarFallback: "MO",
-    quote: "Consegui reaver horas extras não pagas graças à equipe competente da LexLaboris. Recomendo fortemente.",
+    quote: "Consegui reaver horas extras não pagas graças à equipe competente da Giselle & Felipe Advocacia. Recomendo fortemente.",
     rating: 5,
     imageHint: "woman professional"
   },

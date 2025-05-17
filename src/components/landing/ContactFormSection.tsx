@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,7 +17,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Mail, MessageSquare, Phone, User } from "lucide-react";
+import { Mail, MessageSquare, Phone, User, Smartphone } from "lucide-react";
+import { sendContactFormData, type ContactFormInput } from '@/ai/flows/contact-form-flow';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Nome deve ter pelo menos 2 caracteres." }),
@@ -27,19 +29,41 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-async function submitContactForm(data: ContactFormValues) {
-  // Simulate API call
-  console.log("Contact form submitted:", data);
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  // In a real app, you would send this data to your backend or a service like Formspree.
-  // For example:
-  // const response = await fetch('/api/contact', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(data),
-  // });
-  // if (!response.ok) throw new Error("Failed to submit form.");
-  return { success: true, message: "Mensagem enviada com sucesso!" };
+async function processContactFormWithAI(data: ContactFormValues) {
+  try {
+    const contactData: ContactFormInput = {
+      name: data.name,
+      email: data.email,
+      message: data.message,
+    };
+    if (data.phone) {
+      contactData.phone = data.phone;
+    }
+
+    const emailDetails = await sendContactFormData(contactData);
+    console.log("AI Prepared Email Content:", emailDetails);
+
+    // SIMULATION: In a real application, you would now send this email.
+    // Example:
+    // await fetch('/api/send-email', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({
+    //     to: emailDetails.recipientEmail,
+    //     subject: emailDetails.emailSubject,
+    //     html: emailDetails.emailBody.replace(/\n/g, '<br>')
+    //   }),
+    // });
+    // For now, we just simulate a delay.
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    return { success: true, message: "Dados do formulário preparados para envio!" };
+  } catch (error) {
+    console.error("Error processing contact form with AI:", error);
+    // It's important to inform the user about the error.
+    // The error might originate from the AI flow or other parts of the processing.
+    throw new Error("Falha ao processar os dados do formulário com IA.");
+  }
 }
 
 
@@ -57,18 +81,16 @@ export function ContactFormSection() {
 
   async function onSubmit(data: ContactFormValues) {
     try {
-      // Here you would typically send the data to a server
-      // For this example, we'll just log it and show a toast
-      await submitContactForm(data);
+      await processContactFormWithAI(data);
       toast({
         title: "Sucesso!",
-        description: "Sua mensagem foi enviada. Entraremos em contato em breve.",
+        description: "Sua mensagem foi preparada para envio. Entraremos em contato em breve.",
       });
       form.reset();
     } catch (error) {
       toast({
         title: "Erro",
-        description: "Houve um problema ao enviar sua mensagem. Tente novamente.",
+        description: "Houve um problema ao processar sua mensagem. Tente novamente.",
         variant: "destructive",
       });
     }
@@ -149,6 +171,25 @@ export function ContactFormSection() {
                 </Button>
               </form>
             </Form>
+            <div className="mt-8 text-center">
+              <p className="mb-2 text-sm text-muted-foreground">Ou, se preferir, fale conosco diretamente:</p>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full md:w-auto" 
+                asChild
+              >
+                <a
+                  href={`https://wa.me/5511989407822?text=${encodeURIComponent("Olá! Visitei o site Felipe & Silva Advocacia e gostaria de mais informações.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Contato via WhatsApp"
+                >
+                  <Smartphone className="mr-2 h-5 w-5" /> 
+                  Conversar pelo WhatsApp
+                </a>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>
